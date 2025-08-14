@@ -1,0 +1,12 @@
+# ollamaenv
+alias envu="docker compose up -d"
+alias envd="docker compose down"
+
+# ollama alias
+alias ollama="docker exec -it ollama ollama"
+alias ollama_login="docker exec -it ollama /bin/bash"
+alias ollama_backup="docker run --rm -v ollama:/root/.ollama -v `pwd`:/backup busybox tar cvf /backup/ollama_backup.tar /root/.ollama"
+alias ollama_restore="docker run --rm --volumes-from ollamaenv_ollama -v `pwd`:/backup busybox tar xvf /backup/ollama_backup.tar"
+
+# open-webui alias
+alias open-webui_login="docker exec -it ollama /bin/bash"
